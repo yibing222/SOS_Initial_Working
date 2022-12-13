@@ -23,11 +23,7 @@ import io.agora.rtc2.ChannelMediaOptions;
 public class VideoActivity extends AppCompatActivity {
 
     // Fill the App ID of your project generated on Agora Console.
-    private String appId;
-    // You can put in anything for the channel name.
-    private String channelName = new String("SOSChannel");
-    // Fill the temp token generated on Agora Console. For testing purpose, it's null
-    private String token = null;
+    private String appId, token, channelName;
     // An integer that identifies the local user.
     private int uid = 0;
     private boolean isJoined = false;
@@ -45,6 +41,8 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video);
 
         appId = (String) getResources().getText(R.string.agora_app_id);
+        token = (String) getResources().getText(R.string.agora_token);
+        channelName = (String) getResources().getText(R.string.agora_channel);
 
         // If all the permissions are granted, initialize the RtcEngine object and join a channel.
         if (!checkSelfPermission()) {

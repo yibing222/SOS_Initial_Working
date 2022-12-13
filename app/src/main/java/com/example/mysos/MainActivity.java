@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnshow = (Button) findViewById(R.id.btnOne);
         btnshow.setOnClickListener(new BtnClickListener());
         btnNext = (Button) findViewById(R.id.btnTwo);
-        //btnNext.setOnClickListener(new nextActivity());
+        btnNext.setOnClickListener(new nextActivity());
 
         ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, 1);
     }
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*class nextActivity implements View.OnClickListener {
+    class nextActivity implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent it = new Intent(MainActivity.this, VideoActivity.class);
@@ -133,5 +133,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-     */
 }

@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/LinearMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:background="#ADFF2F"
-        android:text="how do you feel today? asdfl; ajlkdsfja ;ljelwjtr lwq"
+        android:text="how do you feel today? Life is good, enjoy the sunshine!"
         android:singleLine="true"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
@@ -36,15 +36,35 @@
         android:layout_height="wrap_content"
         android:inputType="phone" />
 
-    <Button
-        android:id="@+id/btnOne"
-        android:layout_width="match_parent"
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/LayoutBottom"
+        android:layout_width="fill_parent"
         android:layout_height="64dp"
-        android:text="Dial"/>
+        android:columnCount = "5"
+        android:rowCount="1"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btnTwo"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:text="Next"/>
+        <Button
+            android:id="@+id/btnOne"
+            android:text="GPS"/>
+
+        <Button
+            android:id="@+id/btnTwo"
+            android:text="Video"/>
+
+        <Button
+            android:id="@+id/btnThree"
+            android:text="Dial"/>
+
+        <Button
+            android:id="@+id/btnFour"
+            android:text="Map"/>
+
+        <Button
+            android:id="@+id/btnFive"
+            android:text="Setting"/>
+
+    </GridLayout>
+
 </LinearLayout>

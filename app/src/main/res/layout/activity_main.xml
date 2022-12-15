@@ -59,7 +59,8 @@
 
         <Button
             android:id="@+id/btnFour"
-            android:text="Map"/>
+            android:text="Map"
+            android:onClick="onMapClick"/>
 
         <Button
             android:id="@+id/btnFive"

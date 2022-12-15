@@ -1,5 +1,6 @@
 package com.example.mysos;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
@@ -7,6 +8,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 
 import android.Manifest;
 import android.content.Context;
@@ -101,7 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
         for(String p : provides ){
             lc = lm.getLastKnownLocation(p);
-            if( lc != null) sb.append( p + "\n" + composeLocation(lc) + "\n\n");
+            if( lc != null) {
+                SOSApp.getInstance().currentLocation = lc;
+                sb.append( p + "\n" + composeLocation(lc) + "\n\n");
+            }
         }
         return sb.toString();
     }
@@ -133,4 +138,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onMapClick(View v) {
+        Intent it = new Intent(MainActivity.this, GoogleMapActivity.class);
+        startActivity(it);
+    }
 }

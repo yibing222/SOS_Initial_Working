@@ -1,4 +1,4 @@
-package com.example.mysos;
+package com.myangel.mysos;
 
 import android.content.Context;
 

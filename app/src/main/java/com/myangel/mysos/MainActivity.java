@@ -1,7 +1,7 @@
-package com.example.mysos;
+package com.myangel.mysos;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -10,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -24,7 +22,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnshow, btnNext;
     private EditText editBox, phoneNum;
     private TextView txtHeader;
 
@@ -40,15 +37,33 @@ public class MainActivity extends AppCompatActivity {
         phoneNum = (EditText) findViewById(R.id.editPhone);
         editBox = (EditText) findViewById(R.id.txtEdit);
         txtHeader = (TextView) findViewById(R.id.txtHeader);
-        btnshow = (Button) findViewById(R.id.btnOne);
-        btnshow.setOnClickListener(new BtnClickListener());
-        btnNext = (Button) findViewById(R.id.btnTwo);
-        btnNext.setOnClickListener(new nextActivity());
 
         ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, 1);
     }
 
-    protected void setInMotion(){
+    public void onGPSClick(View v) {
+        Intent it = new Intent(MainActivity.this, VideoActivity.class);
+        startActivity(it);
+    }
+
+    public void onVideoClick(View v) {
+        Intent it = new Intent(MainActivity.this, VideoActivity.class);
+        startActivity(it);
+    }
+
+    public void onMapClick(View v) {
+        Intent it = new Intent(MainActivity.this, GoogleMapActivity.class);
+        startActivity(it);
+    }
+
+    public void onDialClick(View v)
+    {
+         Uri uri = Uri.parse("tel:" + phoneNum.getText().toString());
+         Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+         startActivity(intent);
+    }
+
+    public void setInMotion(View v){
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         StringBuilder infoGPS = new StringBuilder("Available location providers:\n");
         for (String s : lm.getAllProviders()) infoGPS.append(s + "\n");
@@ -85,12 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
         String infoLocation = showLocation();
         editBox.setText(infoGPS.toString() + "\n\n\n" + infoLocation);
-
-/*            Uri uri = Uri.parse("tel:" + phoneNum.getText().toString());
-            Intent intent = new Intent(Intent.ACTION_DIAL, uri);
-            startActivity(intent);
-*/
-
     }
 
     private String showLocation() {
@@ -122,24 +131,5 @@ public class MainActivity extends AppCompatActivity {
         sb.append("定位精度：" + location.getAccuracy() + "\n");
         return sb.toString();
     }
-    //define inner class, implement View.OnClickListener interface,override onClick()
-    class BtnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            setInMotion();
-        }
-    }
 
-    class nextActivity implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent it = new Intent(MainActivity.this, VideoActivity.class);
-            startActivity(it);
-        }
-    }
-
-    public void onMapClick(View v) {
-        Intent it = new Intent(MainActivity.this, GoogleMapActivity.class);
-        startActivity(it);
-    }
 }

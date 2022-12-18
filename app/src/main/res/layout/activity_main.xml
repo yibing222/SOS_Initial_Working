@@ -47,15 +47,18 @@
 
         <Button
             android:id="@+id/btnOne"
-            android:text="GPS"/>
+            android:text="GPS"
+            android:onClick="setInMotion"/>
 
         <Button
             android:id="@+id/btnTwo"
-            android:text="Video"/>
+            android:text="Video"
+            android:onClick="onVideoClick"/>
 
         <Button
             android:id="@+id/btnThree"
-            android:text="Dial"/>
+            android:text="Dial"
+            android:onClick="onDialClick"/>
 
         <Button
             android:id="@+id/btnFour"

@@ -1,4 +1,4 @@
-package com.example.mysos;
+  package com.myangel.mysos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -60,12 +60,8 @@ public class VideoActivity extends AppCompatActivity {
 
     private boolean checkSelfPermission()
     {
-        if (ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[0]) !=  PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[1]) !=  PackageManager.PERMISSION_GRANTED)
-        {
-            return false;
-        }
-        return true;
+        return ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[0]) ==  PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, REQUESTED_PERMISSIONS[1]) ==  PackageManager.PERMISSION_GRANTED;
     }
 
     private void setupVideoSDKEngine() {

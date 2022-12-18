@@ -1,10 +1,8 @@
-package com.example.mysos;
+package com.myangel.mysos;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.maps.OnMapReadyCallback;
 
 public class GoogleMapActivity extends AppCompatActivity {
 
